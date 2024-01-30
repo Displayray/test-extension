@@ -26,16 +26,18 @@ export function run(input) {
     return NO_CHANGES;
   }
 
-  const hidePaymentMethod = input.paymentMethods.find(method => method.name.includes("Credit Card"))
+  //const hidePaymentMethod = input.paymentMethods.find(method => method.name.includes("Cash On Delivery"))
+  const reorderPaymentMethod = input.paymentMethods.find(method => method.name.includes("Credit Card"))
 
-  if(!hidePaymentMethod) {
+  if(!reorderPaymentMethod) {
     return NO_CHANGES
   }
 
   return {
     operations: [{
-      hide: {
-        paymentMethodId: hidePaymentMethod.id
+      move: {
+        index: 0,
+        paymentMethodId: reorderPaymentMethod.id
       }
     }]
   }
