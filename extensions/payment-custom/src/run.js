@@ -35,8 +35,8 @@ export function run(input) {
 
   return {
     operations: [{
-      move: {
-        index: 0,
+      rename: {
+        name: "Renamed Payment Method",
         paymentMethodId: reorderPaymentMethod.id
       }
     }]
